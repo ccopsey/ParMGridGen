@@ -20,7 +20,3 @@ before_script:
 
 script:
   - cmake . && make
-
-matrix:
-  allow_failures:
-    - compiler: clang
