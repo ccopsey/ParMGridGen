@@ -1,0 +1,26 @@
+language: c
+
+compiler:
+  - gcc
+  - clang
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.ccache
+
+addons:
+  apt:
+    packages:
+      - libopenmpi-dev
+
+before_script:
+  - export PATH=/usr/lib/ccache:$PATH
+
+script:
+  - cmake . && make
+
+matrix:
+  allow_failures:
+    - compiler: clang
